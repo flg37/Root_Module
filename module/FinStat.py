@@ -46,7 +46,10 @@ class finstat:
 def main():
     fs = finstat()
     data = fs.load_data()
-    print({k: len(v) for k, v in data.items()})
+    #print({k: len(v) for k, v in data.items()})
+    xom = data["XOM_stock_data"]        # list of dicts, one per day
+    closes = [r["Close"] for r in xom]
+    print(closes)
 
 
 if __name__ == "__main__":
