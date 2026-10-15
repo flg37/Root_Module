@@ -9,8 +9,9 @@ class finstat:
 
     def Data(self):
         current_directory = os.path.dirname(__file__)
-        file_path = os.path.join(current_directory, 'data.csv')
-        print(current_directory)
+        custom_directory = os.path.join(current_directory, "..", "data")
+        file_path = os.path.join(current_directory, "AAPL_stock_data.csv")
+        print(custom_directory)
 
 
 
