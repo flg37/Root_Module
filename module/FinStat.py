@@ -4,45 +4,50 @@ import os
 import csv
 
 class finstat:
-    def __init__(self,x):
-        self.x = x
+    def __init__(self,data_directory=None):
+        if data_directory is None:
+            current_directory = os.path.dirname(os.path.abspath(__file__))
+            data_directory = os.path.join(current_directory, "..", "data")
+        self.data_directory = data_directory
+        self.data = {}
 
-    def Data(self):
-        current_directory = os.path.dirname(__file__)
-        data_directory = os.path.join(current_directory, "..","data")
-
+    def load_data(self):
         csv_files = [
-            filename for filename in os.listdir(data_directory)
-            if filename.endswith(".csv")
+            f for f in os.listdir(self.data_directory)
+            if f.endswith(".csv")
         ]
+        for filename in csv_files:
+            name = os.path.splitext(filename)[0]
+            file_path = os.path.join(self.data_directory, filename)
+        
+        with open(file_path, newline="", encoding="utf-8") as csvfile:
+                reader = csv.reader(csvfile)
 
-        with open(file_path, newline-"", encoding ="utf-8") as csvfile:
-            reader = csv.reader(csvfile)
+                next(reader)  # Column headings
+                next(reader)  # Ticker row
+                next(reader)  # Date marker row
 
-            next(reader)  # Column headings
-            next(reader)  # Ticker row
-            next(reader)  # Date marker row
-
-            data[name] = [
+                self.data[name] = [
                     {
                         "Date": row[0],
                         "Close": float(row[1]),
                         "High": float(row[2]),
                         "Low": float(row[3]),
                         "Open": float(row[4]),
-                        "Volume": int(row[5]),
+                        "Volume": int(float(row[5])),
                     }
                     for row in reader
                     if row
                 ]
 
-        return data
-
+        return self.data
 
 
 def main():
-    x = finstat(None)
-    x.Data()
+    fs = finstat()
+    data = fs.load_data()
+    print({k: len(v) for k, v in data.items()})
+
 
 if __name__ == "__main__":
     main()
