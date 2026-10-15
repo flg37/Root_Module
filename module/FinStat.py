@@ -20,7 +20,7 @@ class finstat:
             name = os.path.splitext(filename)[0]
             file_path = os.path.join(self.data_directory, filename)
         
-        with open(file_path, newline="", encoding="utf-8") as csvfile:
+            with open(file_path, newline="", encoding="utf-8") as csvfile:
                 reader = csv.reader(csvfile)
 
                 next(reader)  # Column headings
