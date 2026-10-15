@@ -11,3 +11,13 @@ class finstat:
         current_directory = os.path.dirname(__file__)
         file_path = os.path.join(current_directory, 'data.csv')
         print(current_directory)
+
+
+
+def main():
+    x = finstat.Data
+    return x
+
+
+if __name__ == "__main__":
+    main()
