@@ -22,23 +22,20 @@ class finstat:
         
             with open(file_path, newline="", encoding="utf-8") as csvfile:
                 reader = csv.reader(csvfile)
+                next(reader)
+                next(reader)
+                next(reader)
+                rows = [row for row in reader if row]
 
-                next(reader)  # Column headings
-                next(reader)  # Ticker row
-                next(reader)  # Date marker row
-
-                self.data[name] = [
-                    {
-                        "Date": row[0],
-                        "Close": float(row[1]),
-                        "High": float(row[2]),
-                        "Low": float(row[3]),
-                        "Open": float(row[4]),
-                        "Volume": int(float(row[5])),
+                self.data[name] = {
+                    "Date":   np.array([r[0] for r in rows], dtype="datetime64[D]"),
+                    "Close":  np.array([r[1] for r in rows], dtype=float),
+                    "High":   np.array([r[2] for r in rows], dtype=float),
+                    "Low":    np.array([r[3] for r in rows], dtype=float),
+                    "Open":   np.array([r[4] for r in rows], dtype=float),
+                    "Volume": np.array([r[5] for r in rows], dtype=float),
                     }
-                    for row in reader
-                    if row
-                ]
+              
 
         return self.data
 
@@ -47,9 +44,10 @@ def main():
     fs = finstat()
     data = fs.load_data()
     #print({k: len(v) for k, v in data.items()})
-    xom = data["XOM_stock_data"]        # list of dicts, one per day
-    closes = [r["Close"] for r in xom]
-    print(closes)
+    # list of dicts, one per day
+    close = data["XOM_stock_data"]["Close"]    # already an array, no list comprehension needed
+    returns = np.diff(close) / close[:-1]
+    print(returns)
 
 
 if __name__ == "__main__":
