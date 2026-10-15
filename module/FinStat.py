@@ -15,8 +15,8 @@ class finstat:
 
 
 def main():
-    x = finstat.Data
-    return x
+    x = finstat(None)
+    x.Data
 
 
 if __name__ == "__main__":
