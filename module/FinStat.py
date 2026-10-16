@@ -118,7 +118,7 @@ class FinStat:
             print(f"  {a}-{b}: {c:.2f}")
 
         
-    def plot(self,corr,names):
+    def plot(self,corr,names,n):
         fig, ax = plt.subplots(figsize=(10, 8))
         im = ax.imshow(corr, cmap="coolwarm", vmin=-1, vmax=1)
 
