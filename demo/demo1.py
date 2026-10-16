@@ -1,4 +1,4 @@
-from FinStat import FinStat
+from module import FinStat
 
 def main():
     fs = FinStat()    # looks for CSVs in the same folder as this file
