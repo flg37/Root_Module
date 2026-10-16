@@ -40,5 +40,7 @@ def main():
     #for c, a, b in pairs[-10:]:
     #    print(f"  {a}-{b}: {c:.2f}")
 
+    fs.ranking(names,corr)
+
 if __name__ == "__main__":
     main()
