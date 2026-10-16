@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: package_name
+Version: 0.1.0
+Requires-Python: >=3.8
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: csv
