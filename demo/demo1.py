@@ -25,20 +25,20 @@ def main():
     print("--------------------------------------------------------------------------------------------------------------------------------------------")
     print("Covariance Matrix")
     fs.print_matrix(cov_matrix * 252, names, decimals=3, width=7)
-    n = len(names)
-    pairs = []
-    for i in range(n):
-        for j in range(i + 1, n):         # upper triangle only
-            pairs.append((corr[i, j], names[i], names[j]))
-    pairs.sort(reverse=True)              # highest correlation first
+    #n = len(names)
+    #pairs = []
+    #for i in range(n):
+    #   for j in range(i + 1, n):         # upper triangle only
+    #        pairs.append((corr[i, j], names[i], names[j]))
+    #pairs.sort(reverse=True)              # highest correlation first
 
-    print("\nMost correlated pairs:")
-    for c, a, b in pairs[:10]:
-        print(f"  {a}-{b}: {c:.2f}")
+    #print("\nMost correlated pairs:")
+    #for c, a, b in pairs[:10]:
+    #    print(f"  {a}-{b}: {c:.2f}")
 
-    print("\nLeast correlated pairs:")
-    for c, a, b in pairs[-10:]:
-        print(f"  {a}-{b}: {c:.2f}")
+    #print("\nLeast correlated pairs:")
+    #for c, a, b in pairs[-10:]:
+    #    print(f"  {a}-{b}: {c:.2f}")
 
 if __name__ == "__main__":
     main()
