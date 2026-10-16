@@ -10,7 +10,7 @@ def main():
     tickers, corr = fs.correlation_matrix()
     names = [t.replace("_stock_data", "") for t in tickers]
     fs.print_matrix(corr, names)
-    print("------------------------------------------------------------------")
+    print("----------------------------------------------------------------------------------------------------------------------------------")
     fs.print_matrix(cov_matrix * 252, names, decimals=3, width=7)
 
 if __name__ == "__main__":
