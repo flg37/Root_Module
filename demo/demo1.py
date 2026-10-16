@@ -28,7 +28,7 @@ def main():
 
     fs.ranking(names,corr)
 
-    fs.plot(corr,names)
+    fs.plot(corr,names,n)
 
 if __name__ == "__main__":
     main()
