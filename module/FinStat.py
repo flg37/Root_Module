@@ -161,7 +161,7 @@ class FinStat:
         std = np.sqrt(np.diag(cov))          
         return tickers, cov / np.outer(std, std)
         
-    def print_matrix(matrix, names, decimals=2, width=6):
+    def print_matrix(self,matrix, names, decimals=2, width=6):
         """Print a square matrix as a labelled table.
  
         Args:
