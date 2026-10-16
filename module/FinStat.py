@@ -118,7 +118,10 @@ class FinStat:
             print(f"  {a}-{b}: {c:.2f}")
 
         
-    def plot(self,corr,names,n):
+    def plot(self, corr, names):
+        """Plot a correlation matrix as a labelled heatmap."""
+        n = len(names)
+
         fig, ax = plt.subplots(figsize=(10, 8))
         im = ax.imshow(corr, cmap="coolwarm", vmin=-1, vmax=1)
 
