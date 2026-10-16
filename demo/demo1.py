@@ -1,3 +1,5 @@
+from FinStat import FinStat
+
 def main():
     fs = FinStat()    # looks for CSVs in the same folder as this file
     fs.load_data()
