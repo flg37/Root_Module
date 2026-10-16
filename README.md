@@ -2,10 +2,10 @@
 
 ## Installation
 
-From inside the `root_greeter` directory, install the package in editable mode:
+From the repository root, install the package in editable mode:
 
 ```sh
-python pip install -e .
+python -m pip install -e .
 ```
 
 
@@ -14,5 +14,5 @@ python pip install -e .
 The complete demonstration can be run from the root directory using:
 
 ```sh
-python -m demo/demo1.py
+python -m demo.demo1
 ```
