@@ -99,3 +99,19 @@ class FinStat:
         print(" " * width + "".join(f"{n:>{width}}" for n in names))
         for name, row in zip(names, matrix):
             print(f"{name:<{width}}" + "".join(f"{v:>{width}.{decimals}f}" for v in row))
+
+    def ranking(self):
+        n = len(self.names)
+        pairs = []
+        for i in range(n):
+            for j in range(i + 1, n):         # upper triangle only
+                pairs.append((self.corr[i, j], self.names[i], self.names[j]))
+        pairs.sort(reverse=True)              # highest correlation first
+        
+        print("\nMost correlated pairs:")
+        for c, a, b in pairs[:10]:
+            print(f"  {a}-{b}: {c:.2f}")
+        
+        print("\nLeast correlated pairs:")
+        for c, a, b in pairs[-10:]:
+            print(f"  {a}-{b}: {c:.2f}")
