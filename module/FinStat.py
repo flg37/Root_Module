@@ -100,12 +100,12 @@ class FinStat:
         for name, row in zip(names, matrix):
             print(f"{name:<{width}}" + "".join(f"{v:>{width}.{decimals}f}" for v in row))
 
-    def ranking(self):
-        n = len(self.names)
+    def ranking(self,names,corr):
+        n = len(names)
         pairs = []
         for i in range(n):
             for j in range(i + 1, n):         # upper triangle only
-                pairs.append((self.corr[i, j], self.names[i], self.names[j]))
+                pairs.append((corr[i, j], names[i], names[j]))
         pairs.sort(reverse=True)              # highest correlation first
         
         print("\nMost correlated pairs:")
