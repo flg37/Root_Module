@@ -8,6 +8,7 @@ yfinance-format CSV files into NumPy arrays and computes return covariances.
 import csv 
 import numpy as np
 import os
+import matplotlib.pyplot as plt
 
 
 class FinStat:
@@ -115,3 +116,18 @@ class FinStat:
         print("\nLeast correlated pairs:")
         for c, a, b in pairs[-10:]:
             print(f"  {a}-{b}: {c:.2f}")
+
+        
+    def plot(self,corr,names):
+        fig, ax = plt.subplots(figsize=(10, 8))
+        im = ax.imshow(corr, cmap="coolwarm", vmin=-1, vmax=1)
+
+        ax.set_xticks(range(n))
+        ax.set_xticklabels(names, rotation=90)
+        ax.set_yticks(range(n))
+        ax.set_yticklabels(names)
+
+        fig.colorbar(im, label="Correlation")
+        ax.set_title("Correlation of daily returns")
+        plt.tight_layout()
+        plt.show()
