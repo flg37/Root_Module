@@ -11,7 +11,7 @@ class factors:
         prices = self.corr._aligned_closes(self.tickers)
         R = self.corr._simple_returns(prices)
         #print(R.shape)
-        C = np.corrcoef(R, rowrar = False)
+        C = np.corrcoef(R, rowvar = False)
         print(C.shape)
         E = np.linalg.eig(C)
         print(E)
