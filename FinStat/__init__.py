@@ -1,3 +1,3 @@
-from .FinStat import FinStat
+from .Correlation import Corr
 
-__all__ = ["FinStat"]
+__all__ = ["Correlation"]

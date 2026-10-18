@@ -19,7 +19,7 @@ import os
 import matplotlib.pyplot as plt
 
 
-class FinStat:
+class Corr:
 
     """Load price data for multiple tickers and analyse their returns.
  
