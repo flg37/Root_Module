@@ -7,12 +7,12 @@ Outputs: Correlation and Covarriance Matrix
 """
 
 ## Importing Class into python file
-from module import FinStat
+from Correlation import Corr
 
 
 ## 
 def main():
-    fs = FinStat(data_directory="data")    # looks for CSVs in the same folder as this file
+    fs = Corr(data_directory="data")    # looks for CSVs in the same folder as this file
     fs.load_data()
 
     tickers, cov_matrix = fs.covariance_matrix()
