@@ -6,6 +6,7 @@ class factors:
     def __init__(self,corr_obj, tickers=None):
         self.corr = corr_obj
         self.tickers = tickers if tickers is not None else list(corr_obj.data)
+        
 
     def fit(self):
         prices = self.corr._aligned_closes(self.tickers)
@@ -18,20 +19,16 @@ class factors:
         order = np.argsort(vals)
         vals = vals[order[::-1]]
         vecs = vecs[:, order [::-1]]
-        print(vals[0])
-        print(vals.sum())
-        print(np.round(vecs.T @ vecs, 6))
-        print(np.allclose(vecs @ np.diag(vals) @ vecs.T, C))
+        #print(vals[0])
+        #print(vals.sum())
+        #print(np.round(vecs.T @ vecs, 6))
+        #print(np.allclose(vecs @ np.diag(vals) @ vecs.T, C))
+        sums = vecs.sum(axis=0)
+        sign = np.where(sums >= 0, 1, -1)
+        vecs = (vecs*sign)
+        self.vals = vals
+        self.vecs = vecs
+        self.R = R
+        self.sigma = R.std(axis=0, ddof=1)
 
-
-
-M = np.array([[ 1., -2.,  3.],
-              [ 4.,  5., -6.]])
-
-sums = M.sum(axis=0)
-print(sums)                       # one sum per column
-print(np.sign(sums))              # +1 or -1 for each column
-print(M * np.sign(sums))          # flip the columns whose sum is negative
-print((M * np.sign(sums)).sum(axis=0))
-        
 
