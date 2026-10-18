@@ -21,6 +21,7 @@ class factors:
         print(order2[0])
         print(order2.sum())
         print(np.round(vecs.T @ vecs, 6))
+        print(np.allclose(order3 @ np.diag(order2) @ order3.T, C))
         #print(order2)
         #print(order3)
         
