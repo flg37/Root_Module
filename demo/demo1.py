@@ -7,7 +7,7 @@ Outputs: Correlation and Covarriance Matrix
 """
 
 ## Importing Class into python file
-from Correlation import Corr
+from FinStat import Corr
 
 
 ## 
