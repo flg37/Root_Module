@@ -16,13 +16,22 @@ class factors:
         vals, vecs = np.linalg.eigh(C)
         print(vals)
         order = np.argsort(vals)
-        order2 = vals[order[::-1]]
-        order3 = vecs[:, order [::-1]]
-        print(order2[0])
-        print(order2.sum())
+        vals = vals[order[::-1]]
+        vecs = vecs[:, order [::-1]]
+        print(vals[0])
+        print(vals.sum())
         print(np.round(vecs.T @ vecs, 6))
-        print(np.allclose(order3 @ np.diag(order2) @ order3.T, C))
-        #print(order2)
-        #print(order3)
+        print(np.allclose(vecs @ np.diag(vals) @ vecs.T, C))
+
+
+
+M = np.array([[ 1., -2.,  3.],
+              [ 4.,  5., -6.]])
+
+sums = M.sum(axis=0)
+print(sums)                       # one sum per column
+print(np.sign(sums))              # +1 or -1 for each column
+print(M * np.sign(sums))          # flip the columns whose sum is negative
+print((M * np.sign(sums)).sum(axis=0))
         
 
