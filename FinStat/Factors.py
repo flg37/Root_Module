@@ -15,5 +15,5 @@ class factors:
         print(C.shape)
         E = np.linalg.eig(C)
         print(E)
-        print(E.shape)
+        
 
