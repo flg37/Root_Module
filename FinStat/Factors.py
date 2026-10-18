@@ -12,8 +12,16 @@ class factors:
         R = self.corr._simple_returns(prices)
         #print(R.shape)
         C = np.corrcoef(R, rowvar = False)
-        print(C.shape)
-        E = np.linalg.eig(C)
-        print(E)
+        #print(C.shape)
+        vals, vecs = np.linalg.eigh(C)
+        print(vals)
+        order = np.argsort(vals)
+        order2 = vals[order[::-1]]
+        order3 = vecs[:, order [::-1]]
+        print(order2[0])
+        print(order2.sum())
+        print(np.round(vecs.T @ vecs, 6))
+        #print(order2)
+        #print(order3)
         
 
