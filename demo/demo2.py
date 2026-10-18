@@ -1,5 +1,5 @@
 from FinStat import Corr
-from FinStat import Factors
+from FinStat import factors
 
 fs = Corr("data")
-pca = Factors("fs")
+pca = factors("fs")
