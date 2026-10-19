@@ -17,7 +17,7 @@ print(np.round(share[:5], 3))
 print(np.round(cumulative[:5], 3))
 print(cumulative[-1])
 
-L = pca.loading(0)
+L = pca.loading(1)
 print(L.shape)                    # (19,)
 print(np.round(L, 2))             # all positive, around 0.6
 print((L ** 2).sum()) 
