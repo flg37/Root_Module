@@ -29,4 +29,9 @@ class factors:
         cumulative = np.cumsum(shares)
         return shares, cumulative
 
+    def loading(self,k=0):
+        kth = np.sqrt(self.vals[k]) * self.vecs[:,k]
+        return kth
+       
+
 
