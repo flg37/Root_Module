@@ -46,6 +46,8 @@ print(np.round(t,1))
 print(np.round(pca.sigma,3))
 
 
-F = pca.eigenportfolio_returns(0)
-print(F.shape)                                          # (T,)
-print(np.corrcoef(F, pca.R.mean(axis=1))[0, 1])   
+F0 = pca.eigenportfolio_returns(0)
+F1 = pca.eigenportfolio_returns(1)
+print(np.corrcoef(F0, F1)[0, 1])         # about 1e-15, essentially 0
+print(np.var(F0, ddof=1), pca.vals[0])   # should match: 6.7557...
+print(np.var(F1, ddof=1), pca.vals[1]) 
