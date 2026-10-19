@@ -24,9 +24,9 @@ class factors:
         self.R = R
         self.sigma = R.std(axis=0, ddof=1)
 
-def explained_variance(self):
-    shares = self.vals / self.vals.sum()
-    cumulative = np.cumsum(shares)
-    return shares, cumulative
+    def explained_variance(self):
+        shares = self.vals / self.vals.sum()
+        cumulative = np.cumsum(shares)
+        return shares, cumulative
 
 
