@@ -36,6 +36,11 @@ class factors:
     def eigenportfolio(self,k=0):
         recipe = self.vecs[:, k]
         return recipe / self.sigma
+
+    def eigenportfolio_returns(self,k=0):
+        w = self.eigenportfolio(k)
+        eigenR = self.R @ w
+        return eigenR
        
 
 

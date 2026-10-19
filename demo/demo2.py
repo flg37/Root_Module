@@ -44,3 +44,8 @@ t = pca.eigenportfolio(0)
 print(t.shape)
 print(np.round(t,1))
 print(np.round(pca.sigma,3))
+
+
+F = pca.eigenportfolio_returns(0)
+print(F.shape)                                          # (T,)
+print(np.corrcoef(F, pca.R.mean(axis=1))[0, 1])   
