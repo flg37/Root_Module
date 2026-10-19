@@ -32,6 +32,10 @@ class factors:
     def loading(self,k=0):
         kth = np.sqrt(self.vals[k]) * self.vecs[:,k]
         return kth
+
+    def eigenportfolio(self,k=0):
+        recipe = self.vecs[:, k]
+        return recipe / self.sigma
        
 
 
