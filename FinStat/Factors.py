@@ -41,6 +41,21 @@ class factors:
         w = self.eigenportfolio(k)
         eigenR = self.R @ w
         return eigenR
+
+    def mp_bounds(self,adjust = False):
+        T,N = self.R.shape
+        q = N/T
+        s2 = 1 - self.vals[0]/N
+        lower = (1 - np.sqrt(q))**2
+        upper = (1 + np.sqrt(q))**2
+        return lower, upper
+
+    def n_significant(self):
+        lower, upper = self.mp_bounds(adjust=False)
+        above = (self.vals > upper).sum()
+        below = (self.vals < lower).sum()
+        return above , below
+
        
 
 
