@@ -7,14 +7,34 @@ fs.load_data()
 pca = factors(fs)
 
 pca.fit()
-print(pca.vals[:3])                      # about 6.76, 2.30, 1.19, decreasing
-print(pca.vecs.sum(axis=0))              # every entry >= 0
+print(pca.vals[:3]) 
+
+print("----------------------------------") 
+                    
+print(pca.vecs.sum(axis=0))  # every entry >= 0
+
+print("-----------------------------------") 
+
 print(pca.sigma.shape)                   # (19,)
+
+print("-----------------------------------")
+
 print(np.allclose(pca.vecs @ np.diag(pca.vals) @ pca.vecs.T,np.corrcoef(pca.R, rowvar=False)))
 
+print("-----------------------------------")
+
 share, cumulative = pca.explained_variance()
+
+print("-----------------------------------")
+
 print(np.round(share[:5], 3))
+
+print("-----------------------------------")
+
 print(np.round(cumulative[:5], 3))
+
+print("-----------------------------------")
+
 print(cumulative[-1])
 
 L = pca.loading(0)
