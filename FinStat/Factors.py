@@ -61,15 +61,21 @@ class factors:
 
     def plot_scree(self):
         shares, cumulative = self.explained_variance()
+        lower,upper = self.mp_bounds(adjust=True)
+        lower = lower / self.vals.sum()
+        upper = upper / self.vals.sum()
         T,N = self.R.shape
         x = range(1,N+1)
         y = shares
         fig,ax = plt.subplots()
         ax.bar(x,y)
         ax.plot(x,cumulative, marker = 'o')
+        ax.axhline(upper,linestyle="--", color="red", label="threshold")
+        ax.legend()
         ax.set_title('Scree Plot')
         ax.set_xlabel('Component Number')
         ax.set_ylabel('Share of Variance')
+        ax.set_xticks(x)
         plt.show()
 
 
