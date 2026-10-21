@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+FinStat/Correlation.py
+FinStat/Factors.py
+FinStat/__init__.py
+FinStat.egg-info/PKG-INFO
+FinStat.egg-info/SOURCES.txt
+FinStat.egg-info/dependency_links.txt
+FinStat.egg-info/requires.txt
+FinStat.egg-info/top_level.txt
