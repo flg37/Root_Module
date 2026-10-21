@@ -45,9 +45,18 @@ print(t.shape)
 print(np.round(t,1))
 print(np.round(pca.sigma,3))
 
-
+print("------------------------------------------------------")
 F0 = pca.eigenportfolio_returns(0)
 F1 = pca.eigenportfolio_returns(1)
 print(np.corrcoef(F0, F1)[0, 1])         # about 1e-15, essentially 0
 print(np.var(F0, ddof=1), pca.vals[0])   # should match: 6.7557...
 print(np.var(F1, ddof=1), pca.vals[1]) 
+
+print("-------------------------------------------------------")
+lower, upper = pca.mp_bounds()
+print(lower, upper)
+print(pca.mp_bounds())                 # about (0.83, 1.18)
+print(pca.mp_bounds(adjust=True))  
+
+print("-------------------------------------------------------")
+print(pca.n_significant())

@@ -45,9 +45,12 @@ class factors:
     def mp_bounds(self,adjust = False):
         T,N = self.R.shape
         q = N/T
-        s2 = 1 - self.vals[0]/N
-        lower = (1 - np.sqrt(q))**2
-        upper = (1 + np.sqrt(q))**2
+        if adjust:
+            s2 = s2 = 1 - self.vals[0]/N
+        else:
+            s2 = 1 - self.vals[1]/N
+        lower = s2*(1 - np.sqrt(q))**2
+        upper = s2*(1 + np.sqrt(q))**2
         return lower, upper
 
     def n_significant(self):
