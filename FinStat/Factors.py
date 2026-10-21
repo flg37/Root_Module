@@ -114,7 +114,8 @@ class factors:
 
         # note for eigenvalues too large for the visible range
         off = self.vals[self.vals > xmax]
-        off = np.argsort(off)
+        order = np.argsort(off)
+        off = off[order]
         if len(off) > 0:
             note = "Off scale: " + ", ".join(f"{v:.2f}" for v in off)
             ax.text(0.02, 0.95, note, transform=ax.transAxes, ha="left", va="top")
