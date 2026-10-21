@@ -8,7 +8,7 @@ separate genuine market factors from statistical noise.
 
 ## Features
 
-- Load daily price data for many tickers from yfinance-format CSV files.
+- Load daily price data for many tickers from CSV files.
 - Align tickers on their shared trading dates before any calculation.
 - Covariance and correlation matrices of daily returns, with tables, pair
   rankings and heatmaps.
