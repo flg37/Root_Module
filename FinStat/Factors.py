@@ -48,7 +48,7 @@ class factors:
         if adjust:
             s2 = s2 = 1 - self.vals[0]/N
         else:
-            s2 = 1 - self.vals[1]/N
+            s2 = 1
         lower = s2*(1 - np.sqrt(q))**2
         upper = s2*(1 + np.sqrt(q))**2
         return lower, upper
