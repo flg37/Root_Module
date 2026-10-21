@@ -54,7 +54,7 @@ class factors:
         return lower, upper
 
     def n_significant(self, adjust = False):
-        lower, upper = self.mp_bounds(adjust=False)
+        lower, upper = self.mp_bounds(adjust)
         above = (self.vals > upper).sum()
         below = (self.vals < lower).sum()
         return above , below
