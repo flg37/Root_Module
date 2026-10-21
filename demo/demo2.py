@@ -60,3 +60,4 @@ print(pca.mp_bounds(adjust=True))
 
 print("-------------------------------------------------------")
 print(pca.n_significant())
+print(pca.n_significant(adjust=True))
