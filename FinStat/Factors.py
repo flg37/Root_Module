@@ -114,15 +114,17 @@ class factors:
 
         # note for eigenvalues too large for the visible range
         off = self.vals[self.vals > xmax]
+        off = np.argsort(off)
         if len(off) > 0:
             note = "Off scale: " + ", ".join(f"{v:.2f}" for v in off)
-            ax.text(0.98, 0.65, note, transform=ax.transAxes, ha="right", va="top")
+            ax.text(0.02, 0.95, note, transform=ax.transAxes, ha="left", va="top")
 
         band = "adjusted" if adjust else "plain"
         ax.set_title(f"Eigenvalues vs Marchenko-Pastur ({band} band)")
         ax.set_xlabel("Eigenvalue")
         ax.set_ylabel("Density")
         ax.set_xlim(0, xmax)
+        ax.set_ylim(0, density.max() * 1.4)
         ax.legend(loc="upper right")
         plt.show()
 
