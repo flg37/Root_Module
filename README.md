@@ -1,12 +1,14 @@
-```
-# Stock Correlation and Factor Analysis
+# FinStat
+
+
+## Stock Correlation and Factor Analysis
 
 A Python package for analysing how stocks move together. It loads daily price
 data, computes covariance and correlation matrices of returns, and uses
 principal component analysis (PCA) with Marchenko-Pastur noise filtering to
 separate genuine market factors from statistical noise.
 
-## Features
+### Features
 
 - Load daily price data for many tickers from CSV files.
 - Align tickers on their shared trading dates before any calculation.
