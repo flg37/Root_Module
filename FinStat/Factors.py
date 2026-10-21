@@ -100,11 +100,30 @@ class factors:
             s2 = 1
         x = np.linspace(lower, upper, 200)
         density = np.sqrt((upper - x) * (x - lower)) / (2 * np.pi * s2 * q * x)
-        print(density.max())
-        print(np.trapz(density, x))
+        xmax = 1.5
         fig, ax = plt.subplots()
-        ax.hist(self.vals, bins=40, density=True, range=(0, 1.5))
-        ax.plot(x, density)
+        ax.hist(self.vals, bins=10, density=True, range=(0, xmax),
+            alpha=0.6, label="Eigenvalues")
+        ax.plot(x, density, color="orange", label="Marchenko-Pastur noise density")
+
+        # vertical lines for eigenvalues above the noise edge (label only the first)
+        real = self.vals[self.vals > upper]
+        for i, v in enumerate(real):
+            ax.axvline(v, color="red", linestyle="--",
+                   label="Above noise edge" if i == 0 else None)
+
+        # note for eigenvalues too large for the visible range
+        off = self.vals[self.vals > xmax]
+        if len(off) > 0:
+            note = "Off scale: " + ", ".join(f"{v:.2f}" for v in off)
+            ax.text(0.98, 0.65, note, transform=ax.transAxes, ha="right", va="top")
+
+        band = "adjusted" if adjust else "plain"
+        ax.set_title(f"Eigenvalues vs Marchenko-Pastur ({band} band)")
+        ax.set_xlabel("Eigenvalue")
+        ax.set_ylabel("Density")
+        ax.set_xlim(0, xmax)
+        ax.legend(loc="upper right")
         plt.show()
 
 
