@@ -21,11 +21,19 @@ def main():
     print("Eigen Portfolio of component 1")
     print(F1)
     lower, upper = pca.mp_bounds()
-    lower, upper = pca.mp_bounds(adjust=True)
     print("Lower Bound")
     print(lower)
     print("Upper Bound")
     print(upper)
+    lower, upper = pca.mp_bounds(adjust=True)
+    print("Adjusted Lower Bound")
+    print(lower)
+    print("Adjusted Upper Bound")
+    print(upper)
+    f1 = pca.n_significant(adjust=True)
+    print(f1)
+    f2 = pca.n_significant(adjust = False)
+    print(f2)
     pca.plot_scree()
     pca.plot_loadings()
     pca.plot_vs_mp()
@@ -37,64 +45,3 @@ if __name__ == "__main__":
 
 
 
-#print(pca.vals[:3]) 
-#print("---------------------------------------------")               
-#print(pca.vecs.sum(axis=0))  # every entry >= 0
-#print("---------------------------------------------") 
-#print(pca.sigma.shape)                   # (19,)
-#print("---------------------------------------------")
-#print(np.allclose(pca.vecs @ np.diag(pca.vals) @ pca.vecs.T,np.corrcoef(pca.R, rowvar=False)))
-#print("---------------------------------------------")
-
-
-#print(np.round(share[:5], 3))
-#print("---------------------------------------------")
-#print(np.round(cumulative[:5], 3))
-#print("---------------------------------------------")
-#print(cumulative[-1])
-
-
-#print("---------------------------------------------")
-#print(L.shape)                    # (19,)
-#print("---------------------------------------------")
-#print(np.round(L, 2))             # all positive, around 0.6
-#print("---------------------------------------------")
-#print((L ** 2).sum()) 
-
-
-#print("---------------------------------------------")
-#print(w.shape)                       # (19,)
-#print("---------------------------------------------")
-#print(np.round(w, 1))
-#print("---------------------------------------------")
-#print(np.round(pca.sigma, 3))
-
-
-#t = pca.eigenportfolio(0)
-#print(t.shape)
-#print(np.round(t,1))
-#print(np.round(pca.sigma,3))
-
-#print("------------------------------------------------------")
-#print(np.corrcoef(F0, F1)[0, 1])         # about 1e-15, essentially 0
-#print(np.var(F0, ddof=1), pca.vals[0])   # should match: 6.7557...
-#print(np.var(F1, ddof=1), pca.vals[1]) 
-
-#print("-------------------------------------------------------")
-#lower, upper = pca.mp_bounds()
-#print(lower, upper)
-#lowe, upper = pca.mp_bounds(adjust = True)
-#print(lower,upper)
-
-#print("-------------------------------------------------------")
-#print(pca.n_significant())
-#print(pca.n_significant(adjust=True))
-
-#print("-------------------------------------------------------")
-#pca.plot_scree()
-
-#print("-------------------------------------------------------")
-#pca.plot_loadings()
-
-#print("-------------------------------------------------------")
-#pca.plot_vs_mp()

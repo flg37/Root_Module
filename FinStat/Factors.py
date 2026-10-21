@@ -88,6 +88,7 @@ class factors:
         fig,ax = plt.subplots()
         ax.barh(names, values)
         ax.set_xlabel("Loading")
+        ax.set_title("Loading Graph")
         plt.show()
 
     def plot_vs_mp(self, adjust = True):
@@ -126,7 +127,7 @@ class factors:
         ax.set_ylabel("Density")
         ax.set_xlim(0, xmax)
         ax.set_ylim(0, density.max() * 1.4)
-        ax.legend(loc="lower right")
+        ax.legend(loc="upper right")
         plt.show()
 
 
