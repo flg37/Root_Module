@@ -11,7 +11,7 @@ def main():
     pca.fit()
     share, cumulative = pca.explained_variance()
     L = pca.loading(0)
-    print("")
+    print("Loadings on component 0: correlation of each stock with the market factor")
     print(L)
     w = pca.eigenportfolio(0)
     print("Eigen Portfolio of component 0")
