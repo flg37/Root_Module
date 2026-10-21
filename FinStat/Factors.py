@@ -59,6 +59,20 @@ class factors:
         below = (self.vals < lower).sum()
         return above , below
 
+    def plot_scree(self):
+        shares, cumulative = self.explained_variance()
+        T,N = self.R.shape
+        x = range(1,N+1)
+        y = shares
+        fig,ax = plt.subplots()
+        ax.bar(x,y)
+        ax.plot(x,cumulative, marker = 'o')
+        ax.set_title('Scree Plot')
+        ax.set_xlabel('Component Number')
+        ax.set_ylabel('Share of Variance')
+        plt.show()
+
+
        
 
 
