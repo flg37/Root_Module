@@ -1,14 +1,11 @@
-# FinStat Module
-
-
-## Stock Correlation and Factor Analysis
+# FinStat Module - Stock Correlation and Factor Analysis
 
 A Python package for analysing how stocks move together. It loads daily price
 data, computes covariance and correlation matrices of returns, and uses
 principal component analysis (PCA) with Marchenko-Pastur noise filtering to
 separate genuine market factors from statistical noise.
 
-### Features
+## Features
 
 - Load daily price data for many tickers from CSV files.
 - Align tickers on their shared trading dates before any calculation.
@@ -20,7 +17,7 @@ separate genuine market factors from statistical noise.
 - Plots: correlation heatmap, scree plot, loadings chart and eigenvalue
   histogram against the noise density.
 
-### Installation
+## Installation
 
 From the repository root, install the package in editable mode:
 
@@ -30,7 +27,7 @@ python -m pip install -e .
 
 The package uses NumPy and Matplotlib.
 
-### Data format
+## Data format
 
 Place one CSV file per ticker in a folder (the demonstration uses a folder
 called `data`). Each file must be in yfinance format:
@@ -42,7 +39,7 @@ called `data`). Each file must be in yfinance format:
 The filename without its extension is used as the ticker name, for example
 `AAPL_stock_data.csv` becomes `AAPL_stock_data`.
 
-### Quick start
+## Quick start
 
 ```python
 from FinStat import Corr
@@ -71,7 +68,7 @@ pca.plot_loadings(k=0)
 pca.plot_vs_mp()
 ```
 
-### Main methods
+## Main methods
 
 **`Corr`** (data loading and correlation)
 
@@ -103,7 +100,7 @@ pca.plot_vs_mp()
 Component indices are zero-based, so `k=0` is the largest component (the
 market factor). Plot titles number components from 1.
 
-### Demonstration
+## Demonstration
 
 The complete demonstration can be run from the root directory using:
 
