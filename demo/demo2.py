@@ -55,7 +55,7 @@ print(np.var(F1, ddof=1), pca.vals[1])
 print("-------------------------------------------------------")
 lower, upper = pca.mp_bounds()
 print(lower, upper)
-lowe, upper = pca.mp_bounds(adjus = True)
+lowe, upper = pca.mp_bounds(adjust = True)
 print(lower,upper)
 
 print("-------------------------------------------------------")
