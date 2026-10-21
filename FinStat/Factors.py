@@ -81,13 +81,32 @@ class factors:
     def plot_loadings(self, k=0):
         L = self.loading(k)
         order = np.argsort(L)
-        names = ([self.tickers[i] for i in order])
+        names = [n.replace("_stock_data", "") for n in self.tickers]
+        names = ([names[i] for i in order])
         values = L[order]
 
         fig,ax = plt.subplots()
         ax.barh(names, values)
         ax.set_xlabel("Loading")
         plt.show()
+
+    def plot_vs_mp(self, adjust = True):
+        lower, upper = self.mp_bounds(adjust)
+        T, N = self.R.shape
+        q = N / T
+        if adjust:
+            s2 = 1 - self.vals[0]/N
+        else:
+            s2 = 1
+        x = np.linspace(lower, upper, 200)
+        density = np.sqrt((upper - x) * (x - lower)) / (2 * np.pi * s2 * q * x)
+        print(density.max())
+        print(np.trapz(density, x))
+        fig, ax = plt.subplots()
+        ax.hist(self.vals, bins=40, density=True, range=(0, 1.5))
+        ax.plot(x, density)
+        plt.show()
+
 
 
 
