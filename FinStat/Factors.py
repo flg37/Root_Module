@@ -53,7 +53,7 @@ class factors:
         upper = s2*(1 + np.sqrt(q))**2
         return lower, upper
 
-    def n_significant(self):
+    def n_significant(self, adjust = False):
         lower, upper = self.mp_bounds(adjust=False)
         above = (self.vals > upper).sum()
         below = (self.vals < lower).sum()
