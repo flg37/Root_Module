@@ -64,3 +64,6 @@ print(pca.n_significant(adjust=True))
 
 print("-------------------------------------------------------")
 pca.plot_scree()
+
+print("-------------------------------------------------------")
+pca.plot_loadings()

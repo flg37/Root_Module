@@ -78,6 +78,18 @@ class factors:
         ax.set_xticks(x)
         plt.show()
 
+    def plot_loadings(self, k=0):
+        L = self.loading(k)
+        order = np.argsort(L)
+        names = ([self.tickers[i] for i in order])
+        values = L[order]
+
+        fig,ax = plt.subplots()
+        ax.barh(names, values)
+        ax.set_xlabel("Loading")
+        plt.show()
+
+
 
        
 
