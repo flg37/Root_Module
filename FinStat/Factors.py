@@ -126,7 +126,7 @@ class factors:
         ax.set_ylabel("Density")
         ax.set_xlim(0, xmax)
         ax.set_ylim(0, density.max() * 1.4)
-        ax.legend(loc="upper right")
+        ax.legend(loc="lower right")
         plt.show()
 
 
